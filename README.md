@@ -7,7 +7,7 @@ This project implements a set of sorting algorithms and an SAT score comparison 
 Clone this repository to your local machine. No additional libraries are required beyond the Python standard library.
 
 ```bash
-git clone 
+git clone https://github.com/vanshikadian/Hybrid_Sorting.git
 ```
 
 ## Usage
