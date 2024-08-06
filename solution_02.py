@@ -1,15 +1,7 @@
-"""
-Project 2 - Hybrid Sorting
-CSE 331 Spring 2024
-Aman T., Daniel B., David R., Matt W.
-"""
-
 from typing import TypeVar, List, Callable
 
-T = TypeVar("T")  # represents generic type
+T = TypeVar("T")  
 
-
-# This is an optional helper function but HIGHLY recommended,  especially for the application problem!
 def do_comparison(first: T, second: T, comparator: Callable[[T, T], bool], descending: bool) -> bool:
     """
     Compares 2 elements using the comparator function and sorting manner
@@ -97,55 +89,6 @@ def hybrid_merge_sort(data: List[T], *, threshold: int = 12,
     param descending: if true, sorts the list in descending order, else in ascending order
     returns: None
     """
-
-    '''def merge(left: List[T], right: List[T]) -> List[T]:
-        merged = []
-        i = j = 0
-
-        while i < len(left) and j < len(right):
-            if do_comparison(left[i], right[j], comparator, descending):
-                merged.append(left[i])
-                i += 1
-            else:
-                merged.append(right[j])
-                j += 1
-
-        merged.extend(left[i:])
-        merged.extend(right[j:])
-        return merged
-
-    if len(data) <= 1:
-        return
-
-    if len(data) <= threshold:
-        insertion_sort(data, comparator=comparator, descending=descending)
-    else:
-        mid = len(data) // 2
-        left = data[:mid]
-        right = data[mid:]
-
-        hybrid_merge_sort(left, threshold=threshold, comparator=comparator, descending=descending)
-        hybrid_merge_sort(right, threshold=threshold, comparator=comparator, descending=descending)
-        merged = merge(left, right)
-
-        data.clear()
-        data.extend(merged)
-
-    def merge_sort(arr: List[T]) -> List[T]:
-        if len(arr) <= 1:
-            return arr
-        if len(arr) <= threshold:
-            insertion_sort(arr, comparator=comparator, descending=descending)
-            return arr
-
-        mid = len(arr) // 2
-        left = merge_sort(arr[:mid])
-        right = merge_sort(arr[mid:])
-        return merge(left, right)
-
-    sorted_data = merge_sort(data[:])
-    data.clear()
-    data.extend(sorted_data)'''
     def merge(left: List[T], right: List[T]) -> List[T]:
         merged = []
         i = j = 0
@@ -193,7 +136,6 @@ def quicksort(data: List[T]) -> None:
         :param first: first index of portion of data to sort
         :param last: last index of portion of data to sort
         """
-        # List must already be sorted in this case
         if first >= last:
             return
 
@@ -242,10 +184,6 @@ def quicksort(data: List[T]) -> None:
     quicksort_inner(0, len(data) - 1)
 
 
-###########################################################
-# DO NOT MODIFY
-###########################################################
-
 class Score:
     """
     Class that represents SAT scores
@@ -280,10 +218,6 @@ class Score:
         """
         return f'<English: {self.english}, Math: {self.math}>'
 
-
-###########################################################
-# MODIFY BELOW
-###########################################################
 
 def better_than_most(scores: List[Score], student_score: Score) -> str:
     """
